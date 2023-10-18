@@ -5,6 +5,7 @@ import {
   MouseEvent,
   KeyboardEvent,
   useMemo,
+  useRef,
 } from "react";
 
 // useCallback memoizes a function so that it's not always recreated
@@ -28,6 +29,14 @@ function App() {
   const [count, setCount] = useState<number>(0);
   const [users, setUsers] = useState<User[] | null>(null);
 
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // typeguard
+  // if(!inputRef.current) // one way
+
+  console.log(inputRef?.current);
+  console.log(inputRef?.current?.value);
+
   useEffect(() => {
     // use effect deals with side effects
     // it's when something changes
@@ -41,7 +50,7 @@ function App() {
   const addTwo = useCallback(
     (
       e: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>
-    ): void => setCount((prev) => prev + 1),
+    ): void => setCount((prev) => prev + 2),
     []
   );
 
@@ -55,6 +64,7 @@ function App() {
       {/* button using useCallback which memoizes functions */}
       <button onClick={addTwo}>Add</button>
       <h2>{result}</h2>
+      <input ref={inputRef} type="text" />
     </div>
   );
 }
