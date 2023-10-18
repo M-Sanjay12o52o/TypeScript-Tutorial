@@ -1,11 +1,13 @@
 import Heading from "./components/Heading";
 import { Section } from "./components/Section";
+import Counter from "./components/Counter";
 
 function App() {
   return (
     <>
       <Heading title={"Hello"} />
-      <Section>This is my Section.</Section>
+      <Section title="Different title">This is my Section.</Section>
+      <Counter />
     </>
   );
 }
