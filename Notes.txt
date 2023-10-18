@@ -1,0 +1,11 @@
+Lesson-09 - Utility types:
+
+- Partial
+- Required and Readonly
+- Record
+- Pick and Omit
+- Exclude and Extract
+- Nonnullable
+- ReturnType
+- Parameters
+- Awaited
